@@ -148,7 +148,7 @@ class BaseClass:
         if isinstance(media_path, str) and not path.exists(media_path):
             raise FileNotFoundError("{} does not exist".format(media_path))
 
-        cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
+        #cv2.namedWindow("result", cv2.WINDOW_AUTOSIZE)
 
         if is_image:
             with open(media_path, "rb") as f:
@@ -164,7 +164,7 @@ class BaseClass:
             print("time: {:.2f} ms".format(exec_time * 1000))
 
             image = self.draw_bboxes(frame, bboxes)
-            cv2.imshow("result", image)
+            #cv2.imshow("result", image)
         else:
             if cv_apiPreference is None:
                 cap = cv2.VideoCapture(media_path)
@@ -220,6 +220,6 @@ class BaseClass:
             cap.release()
 
         print("YOLOv4: Inference is finished")
-        while cv2.waitKey(10) & 0xFF != ord("q"):
-            pass
-        cv2.destroyWindow("result")
+        #while cv2.waitKey(10) & 0xFF != ord("q"):
+            #pass
+        #cv2.destroyWindow("result")
